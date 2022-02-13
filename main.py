@@ -123,4 +123,63 @@ while(True):
         print("Congrats")
         break        
 
-## Excercise - Guess the number game?
+##
+# Arithmetic Operators
+print("5 + 6 is ", 5+6)
+print("5 - 6 is ", 5-6)
+print("5 * 6 is ", 5*6)
+print("5 / 6 is ", 5/6)
+print("5 ** 3 is ", 5**3)
+print("5 % 5 is ", 5%5)
+print("15 // 6 is ", 15//6)
+
+# Assignment Operators
+print("Assignment Operators")
+x = 5
+print(x)
+x %=7 # x = x%7
+x +=5
+print(x)
+
+# Comparison Operators
+i = 5
+
+
+# Logical Operators
+a = True
+b = False
+
+# Identity Operators
+print(5 is not 5)
+
+# Membership Operators
+list = [3, 3,2, 2,39, 33, 35,32]
+print(324 not in list)
+
+# Bitwise Operators - Binary value
+0 - 00
+# 1 - 01
+2 - 10
+3 - 11
+
+print(0 & 2)
+print(0 | 3)
+
+##
+# custom Functions and doc string
+a = 2
+b = 5
+c = sum((a,b)) # built in function
+
+def func1(a,b):
+    print("You are in func1", a+b)
+
+def func2(a,b):
+    ''' This is docstring demo, you can use doc string'''
+    average = (a+b)/2
+    print(average)
+    return average
+
+print(func2(4,6))
+print(func2.__doc__) # to print doc string of function
+
