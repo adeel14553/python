@@ -183,3 +183,16 @@ def func2(a,b):
 print(func2(4,6))
 print(func2.__doc__) # to print doc string of function
 
+##
+# try except is try catch in java | Exception Handling
+# It will just catch the error in print e form and move on
+print("Enter num 1")
+num1 = input()
+print("Enter num 2")
+num2 = input()
+
+try:
+    print("The sum of this number is : ",num1 + num2)
+except Exception as e:
+    print(e)
+print("anything")   
