@@ -184,7 +184,7 @@ print(func2(4,6))
 print(func2.__doc__) # to print doc string of function
 
 ##
-# try except is try catch in java | Exception Handling
+# Try except is try catch in java | Exception Handling
 # It will just catch the error in print e form and move on
 print("Enter num 1")
 num1 = input()
@@ -196,3 +196,27 @@ try:
 except Exception as e:
     print(e)
 print("anything")   
+
+##
+# file io basics
+'''
+"r" - open file for reading
+"w" - open file for writing
+"x" - create file if not exists
+"a" - append, add more file to contents
+"t" - text mode
+"b" - binary mode 27.
+'''
+
+file = open("readme.md","rt")
+content = file.read() # you can specify the character count as arg
+content = file.readline() #it will take the newline character aswell to print new line
+content = file.readlines() #it will put the line in list
+# print(content)
+# file.close()
+for line in file: # read line by line, if you want character then iterate through content
+    print(line)
+print(content)
+file.close()
+
+##
