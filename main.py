@@ -87,7 +87,7 @@ else:
     print("Error! Contact us" )
 
 
-## Loops
+## Loops - For loop
 list1 = [int,float,1,2,3,4,5,6,7,8,9,"hello","hi","65"]
 list2 = ["a", "b", "c", "d"]
 for item in list1:
@@ -218,5 +218,19 @@ for line in file: # read line by line, if you want character then iterate throug
     print(line)
 print(content)
 file.close()
+
+##
+# file writing and appending 
+file = open("readme.md", "a") # "w" for writing,creating file
+file.write("This file was edited by python program.")
+a = file.write("This file was edited by python program.") # will return how many characters were appended
+print(a) 
+file.close()
+
+##
+# Read and write a file both
+file = open("readme.md","r+") # read and write
+print(file.read())
+file.write("Add more into it.")
 
 ##
