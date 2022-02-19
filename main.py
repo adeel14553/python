@@ -260,7 +260,7 @@ func1()
 print(x) # will print 8 and will create global variable if not created at top
 
 ##
-# recursion
+# Recursion
 # Factorial 
 def factorial_iterative(n):
     fac = 1
@@ -292,3 +292,42 @@ def fib(n):
 
 number2 = int(input("Enter the number for fib : "))
 print("Fibonacci : " , fib(number2))
+
+##
+# Lambda Function or Anonymous Functions , its just a short version of funtion
+def add(a,b):
+     return a+b
+add2 = lambda a,b: a+b
+
+print(add(2,3))
+print(add2(2,3))
+
+def a_first(a):
+    return a[1] # sort with 1 index
+a = [[9,4],[5,6],[2,3]]
+# a.sort(key = a_first) # key take functions
+a.sort(key = lambda a : a[1]) #or you can just use this
+print(a)
+
+##
+# Using modules, you can install other module using pip install e.g sklearn etc
+import random
+rand = random.randint(0,5)
+print(rand)
+list = list(('apple', 'banana', 'cherry'))
+print(random.choice(list))
+
+##
+# F Strings - to format the string
+import math
+a = "edie"
+b = 5
+line = "this is %s %s"%(a,b)
+line = "this is {1}{0}"
+form = line.format(a,b)
+print(form)
+# or
+c = f" This is {a} {b} {4+8}{math.cos(5)}"
+print(c)
+
+##
