@@ -331,3 +331,39 @@ c = f" This is {a} {b} {4+8}{math.cos(5)}"
 print(c)
 
 ##
+# Args and kwargs
+def funargs(x,*args,**kwargs): # args and kwargs is just a conventional words
+    print(x)
+    print(type(args))
+    print(args[0])
+    for item in args:
+        print(item)
+    for key,value in kwargs.items():
+        print(f"{key} is the {value}")
+
+list = ["a","b","c","d"] # this list will go as a tuple in args
+normal = "this is the normal argument"
+kw = {"a":"1","b":"2"}
+funargs(normal,*list,**kw)
+
+##
+# Time module
+import time
+
+initial = time.time()
+print(initial)
+k=0
+while k<10:
+    print("This is Adeel")
+    k+=1
+print("While loop ran for ", time.time() - initial)    
+initial2 = time.time()
+for i in range(10):
+    print("This is Adeel") 
+print("For loop ran for ", time.time() - initial2)    
+
+localtime = time.asctime(time.localtime(time.time()))
+print(localtime)
+
+##
+
