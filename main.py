@@ -234,3 +234,61 @@ print(file.read())
 file.write("Add more into it.")
 
 ##
+# more on file
+file = open("readme.md" , "rt") # rt is already by default tho
+print(file.readline())
+print(file.tell()) # tell you where is file pointer
+file.seek(0) # seek a pointer to a location
+file.close() # always close the file
+
+##
+# How to open file with "with" 
+with open("readme.md" , "rt") as file :
+    content = file.read(4)
+    print(content)
+
+## you don't have to close file via this method
+# global keyword will give you permission in local scope to read/write in local domain , it won't work in nested scopes, when you type global it just straight go out of the nested scope to global top
+x = 89
+def func1():
+    x = 20
+    def func2():
+        global x
+        x = 8
+    func2() # it won't change the value of x in func 2, if none found, it will create in global
+func1()
+print(x) # will print 8 and will create global variable if not created at top
+
+##
+# recursion
+# Factorial 
+def factorial_iterative(n):
+    fac = 1
+    for i in range(n):
+        fac = fac * (i+1)
+    return fac
+
+def factorial_recursive(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial_recursive(n-1)
+    
+
+number = int(input("Enter the number : "))
+print("Factorial using recursive method : " , factorial_recursive(number))
+print("Factorial using recursive method : " , factorial_iterative(number))
+
+# Fibonacci series
+# 0 1 1 2 3 5 8 13
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1)+fib(n-2)
+    
+
+number2 = int(input("Enter the number for fib : "))
+print("Fibonacci : " , fib(number2))
