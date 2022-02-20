@@ -408,3 +408,9 @@ print(a)
 
 ##
 
+# Map Function
+numbersInStrings = ["33", "55", "49", "67"]
+numbersInInt = list(map(int, numbersInStrings))
+print(numbersInInt[2]+3)
+
+# 49. 6 min 20 sec
