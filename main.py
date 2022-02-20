@@ -366,4 +366,14 @@ localtime = time.asctime(time.localtime(time.time()))
 print(localtime)
 
 ##
-
+# Enumerate Function
+list = ["A","B","C","D","E"]
+i = 0
+for item in list:
+    if i % 2 == 0:
+        print(item)
+    i+=1
+# Enumerate 
+for index,item in enumerate(list):
+    if index % 2 == 0:
+        print(f"Please buy {item}")
