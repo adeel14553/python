@@ -311,6 +311,7 @@ print(a)
 
 ##
 # Using modules, you can install other module using pip install e.g sklearn etc
+from ast import Add
 import random
 rand = random.randint(0,5)
 print(rand)
@@ -373,7 +374,37 @@ for item in list:
     if i % 2 == 0:
         print(item)
     i+=1
-# Enumerate 
+# Enumerate will return index along with item
 for index,item in enumerate(list):
     if index % 2 == 0:
         print(f"Please buy {item}")
+
+##
+# if __name__ == '__main__' is used when you import code but don't want to run all, so you just import and run the code in that file without __main__
+# file to be imported content naming test.py
+
+def printstr(string):
+    return f"This is string {string}"
+def add(num1, num2):
+    return num1 + num2 + 2
+
+if __name__ == '__main__':
+    print("hi")
+    o = add(4,6)
+    print(o)
+
+# so in main file importing
+# import test.py
+# print(test.add(4,2))
+
+##
+# Join function
+list =["John", "b", "c", "d","w"]
+for item in list:
+    print(item, "and",end=" ")
+# you can do above by below code
+a = "and ".join(list)
+print(a)
+
+##
+
