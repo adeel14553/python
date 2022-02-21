@@ -407,10 +407,53 @@ a = "and ".join(list)
 print(a)
 
 ##
-
-# Map Function
+# Map Function allow you to apply another function on all the element
+func2 = [2,3,6,5,8,4,6,33,56]
+for i in func2:
+    print(i)
+for i in range(len(func2)):
+    print(func2[i])   
+    #or use map
 numbersInStrings = ["33", "55", "49", "67"]
 numbersInInt = list(map(int, numbersInStrings))
 print(numbersInInt[2]+3)
+# built in function
+num = [2,3,6,5,8,4,6,33,56]
+square = list(map(lambda x:x*x,num))
+print(square)
 
-# 49. 6 min 20 sec
+# another example
+def square(x):
+    return x*x
+def cube(x):
+    return x*x*x
+func = [square,cube]
+func2 = [2,3,6,5,8,4,6,33,56]
+
+for i in range(5):
+    val = list(map(lambda x:x(i),func))
+    print(val)
+for i in range(len(func2)):
+    val = list(map(lambda x:x(i),func))
+    print(val)
+
+##
+# Filter Function it will return true
+list_1 = [1,2,3,4,5,6,7,8,9]
+def is_greater_than(x):
+    return x>5
+greater_than_5 = list(filter(is_greater_than, list_1))
+print(greater_than_5)
+
+##
+# Reduce function
+from functools import reduce
+list1 = [1,2,3,4,5]
+num = 0
+for i in list1:
+    num = num + i
+print(num)
+    # or use reduce function
+num = reduce(lambda x,y:x+y, list1)
+print(num)
+ 
