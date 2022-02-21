@@ -456,4 +456,18 @@ print(num)
     # or use reduce function
 num = reduce(lambda x,y:x+y, list1)
 print(num)
- 
+
+##
+# Decorator is kinda blueprint, a premade template to run lil bit change functions
+def dec1(func1):
+    def nowexec():
+        print("Executing now")
+        func1()
+        print("Executed")
+    return nowexec
+
+@dec1
+def test():
+    print("Hello")
+# test = dec1(test) == @dec1 are basically samething
+test()
