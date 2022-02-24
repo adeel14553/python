@@ -332,7 +332,7 @@ c = f" This is {a} {b} {4+8}{math.cos(5)}"
 print(c)
 
 ##
-# Args and kwargs
+# Args and kwargs - to use list or string as parameter
 def funargs(x,*args,**kwargs): # args and kwargs is just a conventional words
     print(x)
     print(type(args))
