@@ -144,4 +144,55 @@ print(guy.salary)
 # One component is a layer of abstraction, to achieve abstraction we use encapsulation, encapsulation mean to hide details
 # Encapsulation tells you what it does not how it does
 
-##
+## 
+# Inheritance
+# Abstraction and Encapsulation 
+# One component is a layer of abstraction, to achieve abstraction we use encapsulation, encapsulation mean to hide details
+# Encapsulation tells you what it does not how it does
+class Employee:
+    no_of_leaves = 8
+    def __init__(self, cname, csalary):
+        self.name = cname
+        self.salary = csalary
+
+    def printdetails(self):
+        return f"Name is {self.name}. Salary is {self.salary}" 
+
+    @classmethod
+    def change_leaves(cls, newleaves): 
+        cls.no_of_leaves = newleaves 
+    @classmethod
+    def from_dash(cls,string):
+        return cls(*string.split("-")) 
+    
+    @staticmethod
+    def printgood(string):
+        print("This is good " + string)
+
+edie = Employee("Edie",40) 
+ali = Employee("Ali",50)
+guy = Employee.from_dash("Karan-30") 
+
+# Inheritance
+class Programmer(Employee):
+    no_of_holiday = 20
+    def __init__(self, cname, csalary, clanguage):
+        self.name = cname
+        self.salary = csalary
+        self.languages = clanguage
+
+    def printprog(self):
+        return f"Programer name is {self.name} and know {self.languages}"
+
+max = Programmer("Max",60,["Python"])
+dan = Programmer("Dan",70,["Java"])
+
+
+edie.change_leaves(51)
+
+# print(guy.printgood("Guy")) # will return status code, if none , none will be returned
+guy.printgood("Guy")
+print(Employee.no_of_leaves)
+print(guy.salary)
+print(dan.printprog())
+print(dan.printdetails())
