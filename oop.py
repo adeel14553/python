@@ -242,3 +242,40 @@ reacher = CoolProgrammer("Reacher", 500)
 print(reacher.printdetails())
 reacher.printLanguage()
 
+##
+# Multilevel Inheritance 
+class Dad():
+    basketball = 1
+    pass
+class Son(Dad):
+    running = 1
+    def isrunning(self):
+        return f"Yes i am running {self.running}"
+    pass
+class Grandson(Son):
+    running = 5
+    def isrunning(self):
+        return f"Yes i am running very fast {self.running}"
+    pass
+
+a = Dad()
+b = Son()
+c = Grandson()
+
+print(c.isrunning())
+print(c.basketball) # will look in itself then in Son then in Dad
+
+##
+# Public,private, protected variables - Public share with all, protected share with siblings, private share with me only, family analogy
+class A:
+    var = 10
+    _protected = 20
+    __private = 50 
+
+instance = A()
+print(instance._protected)
+print(instance._A__private) # name mangling, you can use it like that
+
+# Polymorphism - ability to take various forms
+# To take multiple form, e.g two class inherited and you override one function, so it like version 2.0
+
