@@ -196,3 +196,49 @@ print(Employee.no_of_leaves)
 print(guy.salary)
 print(dan.printprog())
 print(dan.printdetails())
+
+##
+# Multiple Inheritance
+class Employee:
+    no_of_leaves = 8
+    def __init__(self, cname, csalary):
+        self.name = cname
+        self.salary = csalary
+
+    def printdetails(self):
+        return f"Name is {self.name}. Salary is {self.salary}" 
+
+    @classmethod
+    def change_leaves(cls, newleaves): 
+        cls.no_of_leaves = newleaves 
+    @classmethod
+    def from_dash(cls,string):
+        return cls(*string.split("-")) 
+    
+    @staticmethod
+    def printgood(string):
+        print("This is good " + string)
+
+class Player():
+    no_of_games = 4
+    def __init__(self,name,game):
+        self.name = name
+        self.game = game
+    
+    def printdetails(self):
+        return f"The name is {self.name} has played {self.game} games"
+
+class CoolProgrammer(Employee, Player): # order is important
+    language = "Cpp"
+    def printLanguage(self):
+        print(self.language)
+    pass
+
+edie = Employee("Edie",40) 
+ali = Employee("Ali",50)
+guy = Employee.from_dash("Guy-30") 
+jack = Player("Jack", ["Cricket"])
+reacher = CoolProgrammer("Reacher", 500)
+print(reacher.printdetails())
+reacher.printLanguage()
+
