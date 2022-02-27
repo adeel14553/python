@@ -469,5 +469,5 @@ def dec1(func1):
 @dec1
 def test():
     print("Hello")
-# test = dec1(test) == @dec1 are basically samething
+# test = dec1(test) == @dec1 are basically same thing
 test()
