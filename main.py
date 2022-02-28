@@ -185,7 +185,7 @@ print(func2.__doc__) # to print doc string of function
 
 ##
 # Try except is try catch in java | Exception Handling
-# It will just catch the error in print e form and move on
+# It will just catch the error in print e form and move on, it won't stop the program
 print("Enter num 1")
 num1 = input()
 print("Enter num 2")
@@ -380,9 +380,8 @@ for index,item in enumerate(list):
         print(f"Please buy {item}")
 
 ##
-# if __name__ == '__main__' is used when you import code but don't want to run all, so you just import and run the code in that file without __main__
-# file to be imported content naming test.py
-
+# We use  __name__ == '__main__' when we import another file, so we want to run all the code except some line of code. So we put the code in __main__ which we dont want to run
+# Content of test.py file below.
 def printstr(string):
     return f"This is string {string}"
 def add(num1, num2):
@@ -395,7 +394,7 @@ if __name__ == '__main__':
 
 # so in main file importing
 # import test.py
-# print(test.add(4,2))
+# print(test.add(4,2)) # so it will import the other file, and run all except the code in __main__
 
 ##
 # Join function
@@ -471,3 +470,132 @@ def test():
     print("Hello")
 # test = dec1(test) == @dec1 are basically same thing
 test()
+
+##
+# Generators - are iterator which can iterate once
+# Generator function are function in which we can yield, mean it capable to generate but not generating
+'''
+Iterable - ___item___() or __getitem___()
+Iterator - __next__() 
+Iteration
+'''
+def gen(n):
+    for i in range(n):
+        yield i #to make it capable but not yet run, validate that it can run.
+
+g = gen(3)
+print(g)
+print(g.__next__())
+print(g.__next__())
+print(g.__next__())
+# or 
+for i in g:
+    print(i) # for loop auto handle the stop iteration
+
+h = 1234 # integer is not iterable
+a = "adeel"
+for c in a:
+    print(c) # string is iterable
+
+##
+# Comprehension - list, dict, set, generator comprehension
+ls = []
+for i in range(100):
+    if i%3==0:
+        ls.append(i)
+
+ls = [i for i in range(100) if i%3==0]
+print(ls)
+
+## Dictionary comprehension
+# if you want to auto fill dict
+# dict = {0: "item0", 1 : "item1" and so on}
+dict = {    i:f"item{i}" for i in range(1000) if i % 100==0}
+dict = {    i:f"Item{i}" for i in range(5)}
+# to reverse your dictionary
+dict2 = {value:key for key, value in dict.items()}
+print(dict,"\n",dict2)
+
+### set comprehension
+dresses = {dress for dress in ["dress1","dress2","dress1","dress2","dress1","dress2"]}
+print(dresses)
+
+### Generator comprehension use parenthesis
+evens = (i for i in range(100) if i%2==0)
+print(evens.__next__()) 
+print(evens.__next__()) 
+# or 
+for item in evens:
+    print(item)
+
+##   
+# Using else with For loops
+list = ["a","b","c"]
+for item in list:
+    print(item)
+    break
+else: # if you want to print something when for loop is ended properly
+    print("For loop ended")
+for item in list:
+    if item == "d":
+        break   
+else: 
+    print("Your item was not found")
+
+##
+# Function Caching
+import time
+from functools import lru_cache
+
+# lru is a decorator which allow cache upto 3 value. So it will cache the same call.
+@lru_cache(maxsize=3)
+def some_work(n):
+    # Some task taking n seconds
+    time.sleep(n)
+    return n
+
+if __name__ == '__main__':
+    print("Now running some work")
+    some_work(3)
+    print("Done..Calling again")
+    some_work(3)
+    print("Called again")
+
+##
+# Else and Finally in try except
+file = open("readme.md")
+try:
+    file1 = open("doesnotexist.txt")
+except IOError as e:
+    print("We got an IOError",e)
+except EOFError as e:
+    print("We got an EOFError",e)
+else: # only except or else will run
+    print("This will run only if except is not runnig")    
+finally: # as the name suggest it will run in all condition
+    # we use finally for code cleanup
+    print("Run this code anyway")
+    file.close()
+    
+##
+# Coroutines - lets you use your function from the middle, you don't have to run all the coroutine from the top
+def searcher():
+    import time
+    book = "A quick brown fox jumps"
+    time.sleep(4) # time consuming task
+
+    while True:
+        text = (yield)
+        if text in book:
+            print("The text is in book")
+        else:
+            print("The text is not in the book")
+
+search = searcher()
+next(search) # this line run the code snippet before while loop
+search.send("Okay") # this line will go directly to while true, text = (yield)
+input("press any key")
+search.send("Okay and")
+search.close() # We close coroutine just like closing the file 
+
+##
