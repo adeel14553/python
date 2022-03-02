@@ -599,3 +599,70 @@ search.send("Okay and")
 search.close() # We close coroutine just like closing the file 
 
 ##
+# OS Module - to interact with os
+import os 
+# print(dir(os)) # what can you do with os module
+print(os.getcwd())
+print(os.listdir())
+print(os.environ.get("Path"))
+print(os.path.join("C://", "/Path")) # join path in optimal way
+print(os.path.exists("C://"))
+print(os.path.isdir("C://"))
+
+##
+# Request Module GET/POST Request
+import requests
+# r = requests.get("https://anime-facts-rest-api.herokuapp.com/api/v1")
+r = requests.get("https://anime-facts-rest-api.herokuapp.com/api/v1/fma_brotherhood/2")
+print(r.text)
+print(r.status_code) # 200 is okay
+
+url = "www.something.com"
+data_dict = {"p1",4,"p2",2}
+r2 = requests.post(url=url, data=data_dict)
+# OR Use postman and create payload via Code snippet
+url = "http://httpbin.org/post"
+payload={'test1': 'value1','test2': 'value2'}
+files=[]
+headers = {}
+
+response = requests.request("POST", url, headers=headers, data=payload, files=files)
+
+print(response.text)
+
+##
+# Json module
+import json
+data = '{"var1":"val1","var2":23}'
+# loads convert string to JSON
+parsed = json.loads(data)
+print(parsed)
+
+data2 = {
+    "var1 ": "value1",
+    "var2" : ["a",'b',"c","d"],
+    "var3" : ('q','w','e'),
+    "isbad" : False
+}
+# dumps make code js compatible, make it as json object
+jscomp = json.dumps(data2)
+print(jscomp)
+
+##
+# Pickle Module - to pack and unpack any object
+import pickle
+# Pickling a python object into a file
+list = ["a","b","c","d","e"] # the value can be list of objects
+file = "mylist.pkl"
+fileobj = open(file,'wb') # write binary
+pickle.dump(list,fileobj)
+fileobj.close()
+
+# to depickle
+file = mylist.pkl
+fileobj = open(file,r)
+mylist = pickle.load(fileobj)
+print(mylist)
+print(type(mylist))
+# what is pickle.loads? <- 
+##
