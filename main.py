@@ -659,10 +659,29 @@ pickle.dump(list,fileobj)
 fileobj.close()
 
 # to depickle
-file = mylist.pkl
+# file = mylist.pkl
 fileobj = open(file,r)
 mylist = pickle.load(fileobj)
 print(mylist)
 print(type(mylist))
 # what is pickle.loads? <- 
+
+##
+# Regular Expression
+import re
+
+mystr = "How are you ?  A quick brown fox jumps over the lazy dog"
+pattern = re.compile(r"you")
+# pattern = re.compile(r".you") # any character except new line
+# pattern = re.compile(r"^you") # Stats with 
+# pattern = re.compile(r"you$") # Ends with
+# pattern = re.compile(r"you*") # Zero or more occurences
+# pattern = re.compile(r"you+") # One or more occurences , search more occurences
+# pattern = re.compile(r"you{2}") # it will find with 2 u 
+# pattern = re.compile(r"you{1}|i") # either you or i , check yt 87
+# pattern = re.compile(r"\d{2}-\d{4}") # Will search for like this 22-5468
+matches = pattern.finditer(mystr)
+for match in matches:
+    print(match)
+
 ##
