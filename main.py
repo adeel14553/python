@@ -685,3 +685,9 @@ for match in matches:
     print(match)
 
 ##
+# == - value equality = two object have same value
+# is - reference equality = two reference to the same object
+
+a = [6,3,"ab"]
+b = [6,3,"ab"]
+print(b is a)
