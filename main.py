@@ -691,3 +691,17 @@ for match in matches:
 a = [6,3,"ab"]
 b = [6,3,"ab"]
 print(b is a)
+
+##
+# Raise in python
+a = int(input("Input any value except 0 \n"))
+if a == 0:
+    raise ZeroDivisionError("Value can't be zero")
+
+b = int("Enter your name \n")
+try:
+    print(c)
+except Exception as e:
+    if b == "ed":
+        raise ValueError("Person is blocked")
+    print("Exception Handled")
